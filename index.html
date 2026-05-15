@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mario Plumbers Stuff | MAMMA MIA! Extreme Pipe Fixin'</title>
+  <style>
+    /* Base Styles & Retro Gaming Vibe */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    body {
+      background-color: #5c94fc; /* Iconic Super Mario Sky Blue */
+      color: #222;
+      line-height: 1.4;
+      padding-bottom: 40px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Brick Wall Header (Classic Mario Blocks) */
+    header {
+      background: #e64a19; /* Fiery Mario Red */
+      border-bottom: 8px solid #fcb434; /* Gold Coin Yellow Stripe */
+      box-shadow: 0 6px 0 #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 32px;
+      color: #fff;
+      text-shadow: 4px 4px 0px #000;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: #fcb434;
+      text-shadow: 4px 4px 0px #000;
+    }
+
+    .search-bar {
+      width: 45%;
+      display: flex;
+      box-shadow: 4px 4px 0px #000;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 4px solid #000;
+      outline: none;
+      font-weight: bold;
+    }
+
+    .search-bar button {
+      background-color: #00a230; /* Warp Pipe Green */
+      color: white;
+      font-size: 18px;
+      border: 4px solid #000;
+      border-left: none;
+      padding: 0 20px;
+      cursor: pointer;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .search-bar button:hover {
+      background-color: #00c83c;
+    }
+
+    .user-nav {
+      display: flex;
+      gap: 15px;
+    }
+
+    .user-nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #000;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      border: 2px solid #fff;
+      box-shadow: 3px 3px 0px #fcb434;
+    }
+
+    /* Navigation Bar (Under the Header) */
+    nav {
+      background-color: #000;
+      padding: 5px 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: block;
+      font-size: 14px;
+      text-transform: uppercase;
+      transition: transform 0.1s;
+    }
+
+    nav ul li a:hover {
+      color: #fcb434;
+      transform: scale(1.1);
+    }
+
+    nav ul li a.ai-link {
+      color: #fcb434;
+      animation: blink 1s infinite;
+      border: 2px solid #fcb434;
+      background: #e64a19;
+      box-shadow: 2px 2px 0px #fff;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    /* Hero Banner (Pixel Level/Warp Pipe Showcase) */
+    .hero {
+      background: linear-gradient(rgba(92, 148, 252, 0.4), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?q=80&w=1200') no-repeat center center/cover;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      border: 6px solid #000;
+      border-top: none;
+      box-shadow: 0 8px 0 rgba(0,0,0,0.2);
+      margin-bottom: 40px;
+    }
+
+    .hero-content {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border: 4px solid #fcb434;
+      border-radius: 10px;
+    }
+
+    .hero-content h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 4px 4px 0px #e64a19;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #fcb434;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #00a230;
+      color: white;
+      padding: 15px 40px;
+      font-size: 20px;
+      text-decoration: none;
+      border: 4px solid #000;
+      box-shadow: 5px 5px 0px #fcb434;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .btn:hover {
+      background-color: #00c83c;
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px #fcb434;
+    }
+
+    /* AI Feature Section (Question Block Style!) */
+    .ai-section {
+      background-color: #fcb434; /* Question Block Gold */
+      border: 5px solid #000;
+      padding: 30px;
+      box-shadow: 8px 8px 0px #000;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .ai-text h2 {
+      color: #000;
+      font-size: 28px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .ai-text p {
+      font-size: 16px;
+      color: #000;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+    }
+
+    .ai-upload-btn {
+      background-color: #00a230;
+      color: white;
+      font-size: 18px;
+      border: 4px solid #000;
+      padding: 15px 25px;
+      cursor: pointer;
+      box-shadow: 4px 4px 0px #fff;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .ai-upload-btn:hover {
+      background-color: #e64a19;
+      box-shadow: 4px 4px 0px #000;
+    }
+
+    /* Product Grid Section */
+    .products-heading {
+      margin-bottom: 25px;
+      font-size: 32px;
+      color: #fff;
+      text-shadow: 3px 3px 0px #000;
+      border-bottom: 6px dashed #000;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background: #fff;
+      border: 4px solid #000;
+      box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 8px 8px 0px #fcb434;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 200px;
+      background-color: #92cafc;
+      border-bottom: 4px solid #000;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-info {
+      padding: 15px;
+      background: #fff;
+    }
+
+    .product-tag {
+      background-color: #e64a19;
+      color: white;
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 2px solid #000;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .product-title {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .product-price {
+      color: #00a230;
+      font-size: 22px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .product-price::before {
+      content: '🪙';
+    }
+
+    /* Lava/Underground Footer (Fix für den blauen Streifen) */
+    footer {
+      background-color: #111;
+      color: #ddd;
+      padding: 40px 0 40px 0; /* Padding unten erhöht */
+      font-size: 15px;
+      border-top: 8px solid #e64a19;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      margin-bottom: -40px; /* Gleicht das body-padding aus */
+    }
+
+    footer h3 {
+      font-family: 'Impact', sans-serif;
+      color: #fcb434;
+      margin-bottom: 15px;
+      font-size: 20px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 0px #000;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      border-bottom: 4px solid #333;
+      padding-bottom: 30px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      color: #bbb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer-col ul li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-top">
+    <div class="logo">🍄 MARIO PLUMBERS <span>STUFF!!</span></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search mega wrenches, fireball proof seals, golden pipes...">
+      <button>LET'S-A GO!</button>
+    </div>
+    <div class="user-nav">
+      <a href="#profile">Hero Profile</a>
+      <a href="#items">Toolbox (🪙 000)</a>
+    </div>
+  </div>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#tools">Super Wrenches</a></li>
+        <li><a href="#warp-pipes">Green Warp Pipes</a></li>
+        <li><a href="#hats">Overalls & Caps</a></li>
+        <li><a href="#goo-fix">Bowser Goo Cleaners</a></li>
+        <li><a href="#power-plunge">Yoshi-Sized Plungers</a></li>
+        <li><a href="#ai-scanner" class="ai-link">🤖 MAMMA MIA! AI EMERGENCY</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <h1>IS YOUR CASTLE FLOODED?!</h1>
+    <p>Mamma mia! Get the exact heavy-duty tools used by Brooklyn's finest superstar plumbers!</p>
+    <a href="#tools" class="btn">GRAB YOUR TOOLBOX!</a>
+  </div>
+</section>
+
+<main class="container">
+
+  <section id="ai-scanner" class="ai-section">
+    <div class="ai-text">
+      <h2>🤖 AI AUTOMATED PIPE DIAGNOSTIC SCANNER!</h2>
+      <p>Did a Piranha Plant clog your main drain? Is Bowser's lava leaking into your kitchen sink? Take a photo of the disaster! Our high-powered AI algorithm instantly processes the data to find your fix!</p>
+    </div>
+    <div>
+      <button class="ai-upload-btn" onclick="alert('Wahoo! AI Leak Engine Scanning... 🍄 System Operational!')">📸 SCAN LEAK NOW!</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="products-heading">🔥 OFFICIAL PLUMBER POWER-UPS (GEAR)</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <span class="product-tag">Super Star</span>
+        <div class="product-img" style="background-image: url('img/wrench.png');"></div>
+        <div class="product-info">
+          <div class="product-title">Ultra Red Fire-Resistant Wrench</div>
+          <div class="product-price">9.95</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag">1-UP Elite</span>
+        <div class="product-img" style="background-image: url('img/pipe.png');"></div>
+        <div class="product-info">
+          <div class="product-title">Premium Green Warp Pipe (Genuine PVC)</div>
+          <div class="product-price">199.95</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag">Must Have</span>
+        <div class="product-img" style="background-image: url('img/plunger.png');"></div>
+        <div class="product-info">
+          <div class="product-title">Mega-Suction Toadstool Plunger</div>
+          <div class="product-price">199.95</div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="product-tag">Bowser Proof</span>
+        <div class="product-img" style="background-image: url('img/tape.png');"></div>
+        <div class="product-info">
+          <div class="product-title">Super Tight Thread Seal Tape Set</div>
+          <div class="product-price">7.95</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h3>Our Mushroom Mission</h3>
+      <p>Since 1985, we've been running, jumping, and fixing broken pipes across kingdoms. Now, we use deep learning algorithms to predict rust and analyze water pressure before it's too late!</p>
+    </div>
+    <div class="footer-col">
+      <h3>Princess-Approved Help</h3>
+      <ul>
+        <li><a href="#shipping">Warp Zone Super Fast Shipping</a></li>
+        <li><a href="#sizing">Pipe Measurements & Fit Charts</a></li>
+        <li><a href="#faq">Frequently Asked Questions</a></li>
+        <li><a href="#contact">Call Emergency AI Castle Dispatch</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Legal Regulations</h3>
+      <ul>
+        <li><a href="#legal-notice">Mushroom Kingdom Terms of Sale</a></li>
+        <li><a href="#privacy">Data Safety & GDPR Protection</a></li>
+        <li><a href="#impressum">Impressum / Legal Registration</a></li>
+        <li><a href="#cookies">Accept Mushroom Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Mario Plumbers Stuff Ltd. THANK YOU SO MUCH FOR PLAYING MY GAME!</p>
+    <p>Project Assignment - Rheinische Hochschule Köln</p>
+  </div>
+</footer>
+</body>
+</html>
